@@ -13,9 +13,11 @@ const {
   path = "",
 } = Astro.props;
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const fullTitle = `${title} | Chenzhe Zhang`;
-const siteUrl = Astro.site?.origin ?? "https://chenzhe-zhang.vercel.app";
-const url = `${siteUrl}${path}`;
+const siteUrl = Astro.site?.origin ?? "https://zhangcz03.github.io";
+const url = `${siteUrl}${base}${path}`;
+const imageUrl = `${siteUrl}${base}${image}`;
 ---
 
 <title>{fullTitle}</title>
@@ -25,7 +27,7 @@ const url = `${siteUrl}${path}`;
 <!-- Open Graph -->
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={`${siteUrl}${image}`} />
+<meta property="og:image" content={imageUrl} />
 <meta property="og:url" content={url} />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Chenzhe Zhang" />
@@ -34,7 +36,7 @@ const url = `${siteUrl}${path}`;
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={`${siteUrl}${image}`} />
+<meta name="twitter:image" content={imageUrl} />
 
 <!-- Canonical -->
 <link rel="canonical" href={url} />
