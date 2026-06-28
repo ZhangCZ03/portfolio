@@ -1,0 +1,81 @@
+---
+import { hero, stats } from "../data/profile";
+import StatusBadge from "./StatusBadge.astro";
+---
+
+<section
+  class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 py-24 bg-surface-50"
+>
+  <!-- Subtle dot pattern overlay -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-30"
+    style="background-image: radial-gradient(circle, #d5d5d2 1px, transparent 1px); background-size: 24px 24px;"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Subtle top gradient -->
+  <div
+    class="absolute top-0 left-1/2 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-accent/[0.02] blur-[100px] pointer-events-none"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Content -->
+  <div class="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center">
+    <!-- Status badge -->
+    <div class="animate-fade-up mb-8">
+      <StatusBadge text={hero.statusText} />
+    </div>
+
+    <!-- Headline -->
+    <h1 class="animate-fade-up animate-delay-100 text-4xl font-bold text-accent tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+      {hero.headline}
+    </h1>
+
+    <!-- Subhead -->
+    <p class="animate-fade-up animate-delay-200 mt-6 font-mono text-base text-accent-muted sm:text-lg md:text-xl tracking-wide">
+      {hero.subhead}
+    </p>
+
+    <!-- Description -->
+    <p class="animate-fade-up animate-delay-300 mt-6 max-w-2xl text-base leading-relaxed text-accent-muted/80 sm:text-lg">
+      {hero.description}
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="animate-fade-up animate-delay-400 mt-10 flex flex-wrap items-center justify-center gap-4">
+      {hero.cta.map((btn) =>
+        btn.primary ? (
+          <a
+            href={btn.href}
+            class="inline-flex items-center gap-2 rounded-sm bg-accent px-6 py-3 font-mono text-sm font-medium text-white transition-all hover:bg-accent-hover hover:shadow-card-hover focus-visible:outline-2 focus-visible:outline-accent-muted"
+          >
+            {btn.text}
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        ) : (
+          <a
+            href={btn.href}
+            class="inline-flex items-center gap-2 rounded-sm border border-edge-mid bg-white px-6 py-3 font-mono text-sm font-medium text-accent-muted transition-all hover:border-accent-muted/40 hover:bg-surface-100 focus-visible:outline-2 focus-visible:outline-accent-muted"
+          >
+            {btn.text}
+            <span aria-hidden="true">&darr;</span>
+          </a>
+        )
+      )}
+    </div>
+
+    <!-- Stats row -->
+    <div class="animate-fade-up animate-delay-500 mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+      {stats.map((stat, i) => (
+        <>
+          {i > 0 && (
+            <span class="hidden sm:block h-4 w-px bg-edge-mid" aria-hidden="true" />
+          )}
+          <span class="font-mono text-xs text-accent-muted/60 border-l-2 border-edge-mid pl-3 py-1">
+            {stat.label}
+          </span>
+        </>
+      ))}
+    </div>
+  </div>
+</section>

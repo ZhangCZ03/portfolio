@@ -1,0 +1,25 @@
+---
+import { site } from "../data/profile";
+---
+
+<footer class="border-t border-edge mt-20 px-6 py-10 bg-surface-100">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-3 text-center">
+    <p class="font-mono text-xs text-accent-muted/60">
+      <span class="text-accent-muted/40">&lt;</span>Chenzhe Zhang<span class="text-accent-muted/40"> /&gt;</span>
+    </p>
+    <p class="text-xs text-accent-muted/50">
+      &copy; {new Date().getFullYear()} — All rights reserved.
+    </p>
+    {site.email && (
+      <a
+        href={`mailto:${site.email}`}
+        class="font-mono text-xs text-accent-muted/60 transition-colors hover:text-accent"
+      >
+        {site.email}
+      </a>
+    )}
+    <p class="text-[10px] text-accent-muted/30 mt-2 font-mono">
+      Designed &amp; built with Astro &middot; Tailwind CSS
+    </p>
+  </div>
+</footer>

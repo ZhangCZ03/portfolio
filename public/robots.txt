@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zhangcz03.github.io/sitemap-index.xml

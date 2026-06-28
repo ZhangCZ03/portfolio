@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProfileCard from "../components/ProfileCard.astro";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import SkillGrid from "../components/SkillGrid.astro";
+import { aboutText, experience, skillGroups } from "../data/profile";
+---
+
+<BaseLayout
+  title="About"
+  description="About Chenzhe Zhang — CMU M.S. student bridging civil infrastructure, computational design, BIM, and geospatial analysis."
+  path="/about"
+>
+  <section class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+    <!-- Section header -->
+    <div class="mb-16">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent-muted/60 mb-3">
+        About
+      </p>
+      <h1 class="section-heading">
+        Background &amp; Story
+      </h1>
+    </div>
+
+    <!-- Two-column: Profile Card (left) + Biography (right) -->
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+      <!-- Sidebar: Profile Card -->
+      <div class="w-full lg:w-[30%] lg:flex-shrink-0">
+        <div class="lg:sticky lg:top-28">
+          <ProfileCard />
+        </div>
+      </div>
+
+      <!-- Main: Biography -->
+      <div class="flex-1 min-w-0">
+        <!-- Narrative -->
+        <div class="max-w-3xl">
+          {aboutText.split("\n\n").map((paragraph) => (
+            <p class="mb-5 text-accent/85 leading-relaxed text-base sm:text-lg">
+              {paragraph.trim()}
+            </p>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience Timeline (full width) -->
+    <div class="mt-24">
+      <h2 class="text-2xl font-bold text-accent mb-10">Experience</h2>
+      <ExperienceTimeline items={experience} />
+    </div>
+
+    <!-- Skills (full width) -->
+    <div class="mt-24">
+      <h2 class="text-2xl font-bold text-accent mb-10">Skills &amp; Tools</h2>
+      <SkillGrid groups={skillGroups} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,96 @@
+---
+import { nav } from "../data/profile";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-edge bg-white/90 backdrop-blur-md">
+  <nav
+    class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+    aria-label="Main navigation"
+  >
+    <!-- Brand -->
+    <a
+      href="/"
+      class="font-mono text-base font-medium text-accent transition-colors hover:text-accent-muted focus-visible:outline-2 focus-visible:outline-accent-muted"
+    >
+      {nav.brand}
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden items-center gap-8 md:flex">
+      {
+        nav.links.map((link) => {
+          const isActive = currentPath.startsWith(link.href);
+          return (
+            <li>
+              <a
+                href={link.href}
+                class={`font-mono text-xs tracking-wider uppercase transition-colors ${
+                  isActive
+                    ? "text-accent font-medium"
+                    : "text-accent-muted/60 hover:text-accent"
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <span class="ml-1 text-accent/30" aria-hidden="true">&middot;</span>
+                )}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-toggle"
+      class="flex flex-col gap-1.5 p-2 md:hidden focus-visible:outline-2 focus-visible:outline-accent-muted"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+    >
+      <span class="block h-px w-5 bg-accent-muted transition-all duration-300" />
+      <span class="block h-px w-5 bg-accent-muted transition-all duration-300" />
+      <span class="block h-px w-5 bg-accent-muted transition-all duration-300" />
+    </button>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div
+    id="mobile-menu"
+    class="mx-6 mb-4 hidden flex-col gap-3 md:hidden"
+    role="region"
+    aria-label="Mobile navigation"
+  >
+    {
+      nav.links.map((link) => {
+        const isActive = currentPath.startsWith(link.href);
+        return (
+          <a
+            href={link.href}
+            class={`font-mono text-xs tracking-wider uppercase py-2 transition-colors ${
+              isActive
+                ? "text-accent font-medium"
+                : "text-accent-muted/60 hover:text-accent"
+            }`}
+          >
+            {link.label}
+          </a>
+        );
+      })
+    }
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      const open = menu.classList.toggle("hidden");
+      menu.classList.toggle("flex", !open);
+      toggle.setAttribute("aria-expanded", String(!open));
+    });
+  }
+</script>

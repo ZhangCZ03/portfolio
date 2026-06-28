@@ -1,0 +1,36 @@
+---
+const pdfPath = "/resume.pdf";
+---
+
+<div class="space-y-6">
+  <!-- Download button -->
+  <div class="flex justify-end">
+    <a
+      href={pdfPath}
+      download
+      class="inline-flex items-center gap-2 rounded-sm border border-edge-mid bg-white px-5 py-2.5 font-mono text-sm text-accent-muted transition-all hover:border-accent-muted/40 hover:bg-surface-100 hover:shadow-subtle focus-visible:outline-2 focus-visible:outline-accent-muted"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" y1="15" x2="12" y2="3" />
+      </svg>
+      Download PDF
+    </a>
+  </div>
+
+  <!-- PDF Viewer -->
+  <div class="rounded-sm border border-edge bg-white overflow-hidden shadow-subtle">
+    <iframe
+      src={pdfPath}
+      class="w-full h-[800px]"
+      title="Resume PDF"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <!-- Fallback note -->
+  <p class="font-mono text-xs text-accent-muted/50 text-center">
+    If the embedded PDF doesn't load, use the <a href={pdfPath} download class="accent-link">download button</a> above.
+  </p>
+</div>

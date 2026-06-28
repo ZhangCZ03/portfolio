@@ -1,0 +1,85 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-50 text-accent font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/10 text-accent;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-accent-muted outline-offset-2 rounded-sm;
+  }
+}
+
+@layer components {
+  /* Thin divider line */
+  .thin-line {
+    @apply border-t border-edge;
+  }
+
+  /* Card base — white, subtle shadow, refined border */
+  .card {
+    @apply bg-white border border-edge shadow-subtle transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply border-edge-mid shadow-card-hover;
+  }
+
+  /* Accent link */
+  .accent-link {
+    @apply text-accent-muted hover:text-accent transition-colors underline-offset-2;
+  }
+
+  /* Section headings */
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-accent tracking-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg text-accent-muted font-mono tracking-wide;
+  }
+
+  /* Subtle text */
+  .text-muted {
+    @apply text-accent-muted/70;
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply rounded-sm border border-edge-mid bg-surface-100 px-2.5 py-0.5 font-mono text-[11px] text-accent-muted;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}

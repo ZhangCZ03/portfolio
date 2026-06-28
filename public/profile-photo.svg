@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Subtle border-matching background -->
+  <rect width="200" height="200" rx="4" fill="#f2f2f0"/>
+  <rect width="200" height="200" rx="4" stroke="#e2e2df" stroke-width="1"/>
+  <!-- Initials -->
+  <text x="100" y="115" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="52" font-weight="600" fill="#5c5c5a">CZ</text>
+  <!-- Subtle label -->
+  <text x="100" y="175" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#d5d5d2">PHOTO</text>
+</svg>

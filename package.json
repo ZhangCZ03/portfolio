@@ -1,0 +1,19 @@
+{
+  "name": "chenzhe-zhang-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.5",
+    "@fontsource/inter": "^5.2.5",
+    "@fontsource/jetbrains-mono": "^5.2.5",
+    "astro": "^5.7.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
+}

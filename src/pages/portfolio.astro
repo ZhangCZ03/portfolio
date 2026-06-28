@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectGrid from "../components/ProjectGrid.astro";
+import { projects } from "../data/profile";
+---
+
+<BaseLayout
+  title="Portfolio"
+  description="Projects by Chenzhe Zhang — spanning BIM, construction technology, spatial analysis, structural analysis, and Python-based optimization."
+  path="/portfolio"
+>
+  <section class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+    <!-- Section header -->
+    <div class="mb-12">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent-muted/60 mb-3">
+        Portfolio
+      </p>
+      <h1 class="section-heading">
+        Projects &amp; Work
+      </h1>
+      <p class="mt-4 max-w-2xl text-accent-muted/80 leading-relaxed">
+        A selection of projects at the intersection of civil engineering, computational methods, and geospatial analysis.
+      </p>
+    </div>
+
+    <!-- Project cards -->
+    <ProjectGrid projects={projects} />
+  </section>
+</BaseLayout>

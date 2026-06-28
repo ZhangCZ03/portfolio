@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ResumeEmbed from "../components/ResumeEmbed.astro";
+import { resumeSummary } from "../data/profile";
+---
+
+<BaseLayout
+  title="Resume"
+  description="Resume of Chenzhe Zhang — CMU M.S. in Civil & Computer Engineering. Education, skills, and experience."
+  path="/resume"
+>
+  <section class="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+    <!-- Section header -->
+    <div class="mb-12">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-accent-muted/60 mb-3">
+        Resume
+      </p>
+      <h1 class="section-heading">
+        Curriculum Vitae
+      </h1>
+    </div>
+
+    <!-- Compact summary -->
+    <div class="mb-14 grid gap-10 md:grid-cols-2">
+      <!-- Education -->
+      <div>
+        <h2 class="font-mono text-xs uppercase tracking-[0.2em] text-accent-muted mb-5">
+          Education
+        </h2>
+        <ol class="space-y-5">
+          {resumeSummary.education.map((edu) => (
+            <li class="border-l-2 border-edge-mid pl-4">
+              <p class="text-sm text-accent-muted/50 font-mono">{edu.date}</p>
+              <p class="text-base font-semibold text-accent mt-1">{edu.degree}</p>
+              <p class="text-sm text-accent-muted mt-0.5">{edu.school}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <!-- Skills -->
+      <div>
+        <h2 class="font-mono text-xs uppercase tracking-[0.2em] text-accent-muted mb-5">
+          Skills
+        </h2>
+        <div class="space-y-5">
+          {resumeSummary.skillGroups.map((group) => (
+            <div>
+              <p class="font-mono text-[11px] text-accent-muted/50 mb-2">{group.category}</p>
+              <div class="flex flex-wrap gap-1.5">
+                {group.items.map((skill) => (
+                  <span class="rounded-sm border border-edge-mid bg-white px-2.5 py-1 font-mono text-[11px] text-accent-muted/80 shadow-subtle">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- PDF embed + download -->
+    <ResumeEmbed />
+  </section>
+</BaseLayout>
