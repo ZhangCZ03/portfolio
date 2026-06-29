@@ -1,6 +1,9 @@
 ---
 import { profile, socialLinks } from "../data/profile";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const photoUrl = `${base}${profile.photoPath}`;
+
 function iconHref(icon: string) {
   switch (icon) {
     case "linkedin":
@@ -23,7 +26,7 @@ function iconHref(icon: string) {
     class="w-44 h-44 sm:w-48 sm:h-48 rounded-sm overflow-hidden border border-edge bg-surface-100 shadow-subtle mb-5"
   >
     <img
-      src={profile.photoPath}
+      src={photoUrl}
       alt="Photo of Chenzhe Zhang"
       class="w-full h-full object-cover"
       loading="eager"
