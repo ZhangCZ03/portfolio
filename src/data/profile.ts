@@ -149,11 +149,25 @@ export const education: Experience[] = [
 
 export const work: Experience[] = [
   {
-    dateRange: "2023 — 2024",
-    title: "Engineering Intern (BIM & Site Coordination)",
+    dateRange: "May 2026 — Present",
+    title: "Project Department Intern",
     institution: "Zhejiang Zhongcheng Construction Group",
     description:
-      "Produced Revit-based bidding models from CAD drawings. Supported on-site construction coordination, documentation, and design-field discrepancy review.",
+      "Compared construction drawings with field conditions to understand structural components, construction sequences, and on-site execution methods.\n\nReviewed discrepancies between design documents and field implementation to better understand drawing interpretation, construction coordination, and practical constraints.\n\nParticipated in project management support tasks, including tracking construction progress, reviewing site organization, assisting with construction documentation, and observing coordination among technical, engineering, and project teams.",
+  },
+  {
+    dateRange: "Jun 2025 — Jul 2025",
+    title: "BIM Technology Center Intern",
+    institution: "Zhejiang Zhongcheng Construction Group",
+    description:
+      "Supported bidding-stage BIM visualization by translating complex CAD drawings into Revit-based architectural, structural, facade, foundation pit support, and site logistics models.\n\nDeveloped schematic BIM models for building massing, aluminum panel facade systems, roof structures, structural beams and columns, and steel-frame–reinforced concrete core-tube components.\n\nUsed Revit and Lumion to produce 3D construction-condition visualizations, helping communicate excavation sequence, site organization, equipment circulation, and key construction stages.\n\nAssisted in preparing technical documentation for a foundation pit support concept involving segmented water-stop inclined piles and vertical retaining systems, with emphasis on construction feasibility and engineering application scenarios.",
+  },
+  {
+    dateRange: "Jun 2023 — Aug 2023",
+    title: "Intern",
+    institution: "Zhejiang Provincial Institute of Land Spatial Planning",
+    description:
+      "Used ArcGIS to analyze spatial, transportation, and land-use data, supporting regional infrastructure planning and transportation route optimization.\n\nConducted suitability and accessibility analyses and produced 10+ thematic maps to support corridor siting, route adjustments, and planning documentation.",
   },
 ];
 
