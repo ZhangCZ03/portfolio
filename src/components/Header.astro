@@ -1,8 +1,8 @@
 ---
 import { nav } from "../data/profile";
 
-const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const currentPath = Astro.url.pathname.replace(base, "") || "/";
 ---
 
 <header class="sticky top-0 z-50 border-b border-edge bg-white/90 backdrop-blur-md">
