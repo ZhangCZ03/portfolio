@@ -130,7 +130,7 @@ export interface Experience {
   description: string;
 }
 
-export const experience: Experience[] = [
+export const education: Experience[] = [
   {
     dateRange: "Aug 2025 — Dec 2026",
     title: "M.S. in Civil and Computer Engineering",
@@ -145,6 +145,9 @@ export const experience: Experience[] = [
     description:
       "Structural engineering major with a minor in transportation engineering. Coursework in structural analysis, BIM, fluid mechanics, transportation systems, and computational methods.",
   },
+];
+
+export const work: Experience[] = [
   {
     dateRange: "2023 — 2024",
     title: "Engineering Intern (BIM & Site Coordination)",
